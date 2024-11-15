@@ -1,0 +1,23 @@
+﻿@model Customer
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-action="CreateCustomer" asp-controller="Home" method="post">
+    <div class="mt-3">
+        <label class="form-label">Adı</label>
+        <input asp-for="@Model.FirstName" class="form-control" />
+    </div>
+    <div class="mt-3">
+        <label class="form-label">Soyadı</label>
+        <input asp-for="@Model.LastName" class="form-control" />
+    </div>
+    <div class="mt-3">
+        <label class="form-label">Yaşı</label>
+        <input asp-for="@Model.Age" class="form-control" />
+    </div>
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </div>
+</form>

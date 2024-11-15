@@ -1,0 +1,45 @@
+﻿@model CustomerCreateModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form asp-action="Create" asp-controller="Home" method="post">
+    <div class="mb-3 mt-3">
+        <label for="firstname" class="form-label">Adı
+            <span class="text-danger">*</span>
+        </label>
+        <input asp-for="@Model.FirstName" class="form-control" id="firstname">
+        <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+        @* Validationları göstermek için asp-validation-for kullanıyoruz *@
+    </div>
+    <div class="mb-3">
+        <label for="lastname" class="form-label">Soyadı
+            <span class="text-danger">*</span>
+        </label>
+        <input asp-for="@Model.LastName" class="form-control" id="lastname">
+        <span asp-validation-for="@Model.LastName" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label for="age" class="form-label">Yaşı
+            <span class="text-danger">*</span>
+        </label>
+        <input asp-for="@Model.Age" class="form-control" id="age">
+        <span asp-validation-for="@Model.Age" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </div>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @* Oluşturduğumuz özel validation'u bu şekilde çağırıyoruz. Paremetre olarak All verirsek tüm validationları çeker, ModelOnly verirsek sadece özel validation'u çeker. *@
+</form>
+
+@section Scripts {
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    @* Client tarafında anlık olarak validationları uygulamak için bu iki jquery kütüphanesini ekliyoruz *@
+    @* \Views\Shared\_ValidationScriptsPartial.cshtml partial view'i içerisinde tanımlanmışlardır. *@
+}
